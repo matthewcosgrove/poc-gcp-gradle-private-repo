@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenRepoGoogleCloudUrl) {
+                authentication(userName: mavenRepoGoogleCloudUser, password: mavenRepoGoogleCloudPassword)
+            }
+        }
+    }
+}
+
+group = 'poc.mc'
+version = '0.0.2-SNAPSHOT'
+
+jar {
+	baseName = 'poc-gcp-gradle-private-repo'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
