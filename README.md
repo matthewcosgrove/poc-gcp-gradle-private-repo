@@ -4,6 +4,8 @@ This project is created as a PoC of deploying a Spring Boot app with a Gradle se
 
 It was created by selecting a Gradle project from http://start.spring.io/ (it is bare bones without any additional dependencies added)
 
+For the Maven equivalent see [poc-gcp-maven-private-repo](https://github.com/matthewcosgrove/poc-gcp-maven-private-repo)
+
 ### Gradle Configuration
 
 The repo URL and creds have been moved to `~/.gradle/gradle.properties` and the appropriate config from [gradle.build](gradle.build) to enable a Maven deploy (achieved in Gradle by `uploadArchives`) is 
